@@ -1,0 +1,31 @@
+/* app.component.scss */
+html, body, app-root {
+    height: 100%;
+    width: 100%;
+}
+/* Couleurs globales */
+:root {
+    --primary-color: #8a2be2; /* Violet sombre */
+    --background-color: #2e0249; /* Fond violet sombre */
+    --text-color: #853131; /* Texte blanc */
+}
+
+/* Styles de base */
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Facultatif : gérer les polices par défaut */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+}
