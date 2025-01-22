@@ -1,0 +1,49 @@
+@use "@angular/material" as mat;
+@use "./base/_reset";
+@use "./base/_globals";
+@use "./base/_typography";
+@use "./themes/_theme";
+@use "./themes/_light-theme" as light-theme;
+@use "./themes/_dark-theme" as dark-theme;
+
+html.light {
+  @include light-theme.light-theme();
+}
+
+html.dark {
+  @include dark-theme.dark-theme();
+}
+
+html {
+  color-scheme: light dark;
+  @include mat.theme(
+    (
+      color: mat.$violet-palette,
+      typography: (
+        plain-family: var(--font-secondary),
+        brand-family: var(--font-primary),
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400,
+      ),
+      density: 0,
+    )
+  );
+}
+
+body {
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  --sidenav-bg-color: #1e1e2f; /* Couleur personnalisée */
+  --sidenav-text-color: #ffffff; /* Texte du sidenav */
+  --sidenav-font-family: var(--font-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+}

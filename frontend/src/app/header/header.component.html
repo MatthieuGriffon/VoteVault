@@ -1,17 +1,25 @@
-<header class="header">
+<mat-toolbar class="header">
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <div class="logo">VoteVault</div>
-    <nav>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" class="sidenav">
+      <nav>
         <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/create">Créer un sondage</a></li>
-            <li><a href="/my-polls">Mes sondages</a></li>
-            <li><a href="/contact">Contact</a></li>
+          <li><a routerLink="/" (click)="sidenav.close()">Accueil</a></li>
+          <li><a routerLink="/create" (click)="sidenav.close()">Créer un sondage</a></li>
+          <li><a routerLink="/my-polls" (click)="sidenav.close()">Mes sondages</a></li>
+          <li><a routerLink="/contact" (click)="sidenav.close()">Contact</a></li>
         </ul>
-    </nav>
-    <div class="user-actions">
-        <button>Se connecter</button>
-        <button>S'inscrire</button>
-    </div>
-</header>
-
+      </nav>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <!-- Contenu principal de l'application -->
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
   

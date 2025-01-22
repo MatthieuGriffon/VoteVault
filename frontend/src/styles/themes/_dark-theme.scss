@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+
+@mixin dark-theme() {
+  html.dark {
+    color-scheme: dark;
+
+    // Placez les déclarations CSS dans un bloc d’imbrication explicite
+    & {
+      --sidenav-bg-color: #1e1e2f; /* Fond sombre */
+      --sidenav-text-color: #ffffff; /* Texte blanc */
+      --primary-color: #6200ea; /* Couleur principale */
+      --on-primary-color: #ffffff; /* Texte sur couleur principale */
+    }
+
+    @include mat.theme((
+      color: mat.$violet-palette,
+      typography: Roboto,
+      density: 0
+    ));
+  }
+}

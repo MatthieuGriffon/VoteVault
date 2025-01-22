@@ -1,5 +1,4 @@
 /* reset.scss */
-/* Box sizing reset */
 *,
 *::before,
 *::after {
@@ -8,7 +7,6 @@
     padding: 0;
 }
 
-/* Remove default margin */
 body,
 h1,
 h2,
@@ -22,40 +20,23 @@ ul {
     margin: 0;
 }
 
-/* Set default font and background */
-body {
-    line-height: 1.5;
-    height: 100%;
-    width: 100%;
-}
-
-/* Remove bullets and padding on lists */
 ol,
 ul {
     list-style: none;
     padding: 0;
 }
 
-/* Anchor tags without underline */
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* Reset table styles */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* Reset images */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Button and inputs */
 button,
 input,
 textarea {
@@ -68,7 +49,3 @@ textarea {
 button {
     cursor: pointer;
 }
-#mat-typography{
-    color: blue;
-    background-color: red;
-    }

@@ -16,5 +16,5 @@ export const appConfig: ApplicationConfig = {
           return next(req); // Continue vers le backend
         },
       ]),
-    )]
+    ), provideAnimationsAsync(), provideAnimationsAsync()]
 };

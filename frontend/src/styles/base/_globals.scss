@@ -1,0 +1,11 @@
+/* globals.scss */
+:root {
+  --primary-color: #8a2be2; /* Violet sombre */
+  --background-color: #f9f8fa; /* Fond violet sombre */
+  --text-color: #ffffff; /* Texte blanc */
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+}

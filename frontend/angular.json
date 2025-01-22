@@ -32,10 +32,16 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/magenta-violet.css",
-              "src/styles.scss",
-              "src/styles/reset.scss"
+              "src/styles/base/_reset.scss",
+              "src/styles/styles.scss",
+              "src/styles/themes/_theme.scss",
+              "src/styles/base/_typography.scss"
             ],
+            "stylePreprocessorOptions": {
+            "includePaths": [
+              "src/styles"
+            ]
+},
             "scripts": []
           },
           "configurations": {
