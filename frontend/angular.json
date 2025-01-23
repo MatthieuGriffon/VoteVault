@@ -34,7 +34,6 @@
             "styles": [
               "src/styles/base/_reset.scss",
               "src/styles/styles.scss",
-              "src/styles/themes/_theme.scss",
               "src/styles/base/_typography.scss"
             ],
             "stylePreprocessorOptions": {

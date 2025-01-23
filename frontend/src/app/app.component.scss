@@ -1,5 +1,9 @@
 /* app.component.scss */
-html,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 body,
 app-root {
   height: 100%;
@@ -21,6 +25,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  height: 100%;
 }
 
 /* Facultatif : gérer les polices par défaut */

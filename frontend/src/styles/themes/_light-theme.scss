@@ -1,23 +1,20 @@
 @use '@angular/material' as mat;
+@use './themes_theme-colors' as colors; // Vérifiez que le chemin est correct
 
 @mixin light-theme() {
   html.light {
     color-scheme: light;
-
-    // Placez les déclarations CSS dans un bloc d’imbrication explicite
-    & {
-      --sidenav-bg-color: #ffffff; /* Fond blanc */
-      --sidenav-text-color: #000000; /* Texte noir */
-      --primary-color: #1976d2; /* Couleur principale */
-      --on-primary-color: #ffffff; /* Texte sur couleur principale */
-    }
-
+    --sidenav-bg-color: var(--mat-sys-surface);
+    --sidenav-text-color: var(--mat-sys-on-surface);
     @include mat.theme((
-      color: mat.$blue-palette,
-      typography: Roboto,
-      density: 0
+      color: (
+        primary: colors.$primary-palette, // Palette primaire
+        tertiary: colors.$tertiary-palette, // Palette tertiaire
+        theme-type: light, // Définit le type de thème comme clair
+      ),
+      typography: Roboto, // Typographie
+      density: 0, // Densité
     ));
   }
 }
-
 

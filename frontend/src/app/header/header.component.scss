@@ -1,13 +1,18 @@
 /* Styles pour le header */
 .header {
+  position: relative; /* Position relative pour que le logo puisse être centré */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--mat-sys-primary);
-  color: var(--mat-sys-on-primary);
+  background-color: var(--header-bg-color); /* Couleur de fond selon le thème */
+  color: var(--header-text-color); /* Couleur du texte selon le thème */
   padding: 0 1rem;
+  height: 4rem; /* Fixer une hauteur pour aider au centrage */
 
   .logo {
+    position: absolute; /* Permet de centrer indépendamment des autres éléments */
+    left: 50%; /* Centre horizontalement par rapport au conteneur */
+    transform: translateX(-50%); /* Corrige l'offset pour centrer parfaitement */
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--mat-sys-on-primary);
@@ -20,22 +25,33 @@
 
 /* Styles pour le sidenav */
 .sidenav-container {
-  height: 100vh;
+  height: 30vh; /* Hauteur réduite */
+  margin-top: 0vh; /* Centrer verticalement si nécessaire */
+}
+.sidenav-container.mat-drawer-container {
+  .mat-drawer-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  }
 }
 
 .sidenav {
-  width: 250px;
+  width: 15rem;
+  height: 100%; /* S'assure que le sidenav prend toute la hauteur disponible */
   background-color: var(--sidenav-bg-color); /* Utilise la variable */
   color: var(--sidenav-text-color); /* Couleur du texte */
   padding: 1rem;
   font-family: var(--font-primary);
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Transition fluide */
+  border-top-right-radius: 15px; /* Coin arrondi en haut à droite */
+  border-bottom-right-radius: 15px; /* Coin arrondi en bas à droite */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre pour un meilleur effet visuel */
 
   ul {
     list-style: none;
     padding: 0;
 
     li {
-      margin: 1rem 0;
+      margin: 1rem 1rem;
 
       a {
         text-decoration: none;

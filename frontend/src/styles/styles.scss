@@ -2,41 +2,31 @@
 @use "./base/_reset";
 @use "./base/_globals";
 @use "./base/_typography";
-@use "./themes/_theme";
 @use "./themes/_light-theme" as light-theme;
 @use "./themes/_dark-theme" as dark-theme;
 
+// Appliquer les thèmes light et dark
 html.light {
   @include light-theme.light-theme();
+  --sidenav-bg-color: #dcdce373;
+  --sidenav-text-color: #000000;
+  --header-bg-color: #ffffff; /* Blanc pour le thème clair */
+  --header-text-color: #000000; /* Noir pour le texte */
 }
 
 html.dark {
   @include dark-theme.dark-theme();
+  --sidenav-bg-color: #1e1e2fd6; /* Fond sombre */
+  --sidenav-text-color: #ffffff; /* Texte blanc */
+  --header-bg-color: #000000; /* Noir pour le thème sombre */
+  --header-text-color: #ffffff; /* Blanc pour le texte */
 }
 
-html {
-  color-scheme: light dark;
-  @include mat.theme(
-    (
-      color: mat.$violet-palette,
-      typography: (
-        plain-family: var(--font-secondary),
-        brand-family: var(--font-primary),
-        bold-weight: 700,
-        medium-weight: 500,
-        regular-weight: 400,
-      ),
-      density: 0,
-    )
-  );
-}
-
+// Appliquer les variables CSS globales pour Material
 body {
   background: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
-  --sidenav-bg-color: #1e1e2f; /* Couleur personnalisée */
-  --sidenav-text-color: #ffffff; /* Texte du sidenav */
-  --sidenav-font-family: var(--font-secondary);
+  font-family: var(--font-secondary);
 }
 
 h1,

@@ -2,7 +2,9 @@
 :root {
   --primary-color: #8a2be2; /* Violet sombre */
   --background-color: #f9f8fa; /* Fond violet sombre */
-  --text-color: #ffffff; /* Texte blanc */
+  --text-color: #ffffff;
+  --sidenav-bg-color: var(--mat-sys-surface); /* Par défaut, surface */
+  --sidenav-text-color: var(--mat-sys-on-surface); /* Par défaut, texte sur surface */ /* Texte blanc */
 }
 
 body {

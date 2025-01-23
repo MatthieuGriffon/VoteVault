@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -9,33 +9,45 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 @Component({
   selector: 'app-header',
   standalone: true,
-
   imports: [
-
     CommonModule,
-
     RouterModule,
-
     MatToolbarModule,
-
     MatIconModule,
-
     MatButtonModule,
-
     MatSidenavModule,
-
-    MatSidenav
-
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  // Utilisation de ViewChild pour contrôler le sidenav
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  currentTheme: 'light' | 'dark' = 'light'; // Définir le type du thème
+
+  constructor(private renderer: Renderer2) {
+    // Récupérer le thème sauvegardé ou définir le thème par défaut
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    this.currentTheme = savedTheme as 'light' | 'dark';
+    this.applyTheme(this.currentTheme);
+  }
 
   toggleSidenav() {
     this.sidenav.toggle();
     console.log('Sidenav toggled');
+  }
+
+  toggleTheme() {
+    // Basculer entre les thèmes
+    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', this.currentTheme); // Sauvegarder le thème
+    this.applyTheme(this.currentTheme);
+    console.log(`Theme switched to ${this.currentTheme}`);
+  }
+
+  private applyTheme(theme: 'light' | 'dark') {
+    const htmlElement = document.documentElement;
+    this.renderer.removeClass(htmlElement, 'light');
+    this.renderer.removeClass(htmlElement, 'dark');
+    this.renderer.addClass(htmlElement, theme);
   }
 }
