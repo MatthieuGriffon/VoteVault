@@ -50,4 +50,16 @@ export class HeaderComponent {
     this.renderer.removeClass(htmlElement, 'dark');
     this.renderer.addClass(htmlElement, theme);
   }
+
+  onLogin() {
+    console.log('Login button clicked');
+    // Redirection ou ouverture de modale
+    // Exemple : this.router.navigate(['/login']);
+  }
+  
+  onRegister() {
+    console.log('Register button clicked');
+    // Redirection ou ouverture de modale
+    // Exemple : this.router.navigate(['/register']);
+  }
 }

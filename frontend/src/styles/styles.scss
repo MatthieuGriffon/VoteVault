@@ -2,38 +2,74 @@
 @use "./base/_reset";
 @use "./base/_globals";
 @use "./base/_typography";
-@use "./themes/_light-theme" as light-theme;
-@use "./themes/_dark-theme" as dark-theme;
+@use './themes/themes_theme-colors' as colors;
 
-// Appliquer les thèmes light et dark
-html.light {
-  @include light-theme.light-theme();
-  --sidenav-bg-color: #dcdce373;
-  --sidenav-text-color: #000000;
-  --header-bg-color: #ffffff; /* Blanc pour le thème clair */
-  --header-text-color: #000000; /* Noir pour le texte */
+@mixin light-theme() {
+  html.light {
+    color-scheme: light;
+    --sidenav-bg-color: #dcdce373;
+    --sidenav-text-color: #000000;
+    --header-bg-color: #ffffff;
+    --header-text-color: #000000;
+
+    @include mat.theme((
+      color: (
+        primary: colors.$primary-palette,
+        tertiary: colors.$tertiary-palette,
+        theme-type: light,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+    .mat-mdc-raised-button {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+    }
+    .logo {
+      color: black;
+      font-weight: bold;
+    }
+  }
 }
 
-html.dark {
-  @include dark-theme.dark-theme();
-  --sidenav-bg-color: #1e1e2fd6; /* Fond sombre */
-  --sidenav-text-color: #ffffff; /* Texte blanc */
-  --header-bg-color: #000000; /* Noir pour le thème sombre */
-  --header-text-color: #ffffff; /* Blanc pour le texte */
+@mixin dark-theme() {
+  html.dark {
+    color-scheme: dark;
+    --sidenav-bg-color: #1e1e2fd6;
+    --sidenav-text-color: #ffffff;
+    --header-bg-color: #000000;
+    --header-text-color: #ffffff;
+
+    @include mat.theme((
+      color: (
+        primary: colors.$primary-palette,
+        tertiary: colors.$tertiary-palette,
+        theme-type: dark,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+
+    .mat-mdc-raised-button {
+      background-color: white;
+      color: black;
+    }
+    .logo {
+      color: white;
+      font-weight: bold;
+    }
+  }
 }
 
-// Appliquer les variables CSS globales pour Material
+@include light-theme();
+@include dark-theme();
+
 body {
   background: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font-family: var(--font-secondary);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
 }

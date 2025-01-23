@@ -2,8 +2,13 @@
   <button mat-icon-button (click)="toggleSidenav()" aria-label="Ouvrir le menu">
     <mat-icon>menu</mat-icon>
   </button>
+    
     <div class="logo">VoteVault</div>
     <span class="spacer"></span>
+    <div class="btn-log-reg">
+      <button mat-raised-button color="primary" (click)="onLogin()">Login</button>
+      <button mat-raised-button color="accent" (click)="onRegister()">Register</button>
+      </div>
     <button mat-icon-button (click)="toggleTheme()" aria-label="Changer le thème">
       <mat-icon>{{ currentTheme === 'dark' ? 'brightness_4' : 'brightness_high' }}</mat-icon>
     </button>
@@ -22,7 +27,6 @@
     </mat-sidenav>
   
     <mat-sidenav-content>
-      <p>Contenu principal</p>
     </mat-sidenav-content>
   </mat-sidenav-container>
   
